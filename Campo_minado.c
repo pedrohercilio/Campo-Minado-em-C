@@ -193,18 +193,18 @@ int posicaoEscolhida(int linha, int coluna) {
     // Trata a posição escolhida
 
     if (jogador[linha][coluna] == 1){
-        printf("Posicao ja aberta!\n");
+        printf("Posição ja aberta!\n");
         return 1;
     }
 
     if (jogador[linha][coluna] == 2){
-        printf("Posicao marcada como bomba!\n");
+        printf("\nPosição marcada como bomba!\n");
         return 1;
     }
 
     if (tela[linha][coluna] == -1){
 
-        printf("\033[31m\nVOCE PERDEU!\nBOOM! Voce encontrou uma bomba!\n\033[0m");
+        printf("\033[31m\nVOCÊ PERDEU!\nBOOM! Você encontrou uma bomba!\n\033[0m");
 
         imprimeTelaOriginal();
         return 0;
@@ -219,7 +219,7 @@ int posicaoEscolhida(int linha, int coluna) {
 
 
     if (venceu()){
-        printf("\033[36m\nPARABENS! VOCE VENCEU O JOGO!\n\033[0m");
+        printf("\033[36m\nPARABÉNS! VOCÊ VENCEU O JOGO!\n\033[0m");
         imprimeTelaOriginal();
         return 0;
     }
@@ -238,7 +238,7 @@ void marcarBomba(){
         scanf("%d", &coluna);
 
         if (linha < 0 || linha >= TAM || coluna < 0 || coluna >= TAM) {
-            printf("Posicao invalida!\n");
+            printf("Posição inválida!\n");
         }
         else
             break;
@@ -249,7 +249,7 @@ void marcarBomba(){
 
     }
     else if (jogador[linha][coluna] == 2){
-        printf("Posicao ja marcada!\nDeseja desmarca-la? (y/n): ");
+        printf("\nPosição ja marcada!\nDeseja desmarca-la? (y/n): ");
         scanf(" %c", &escolha);
         if (escolha == 'y' || escolha == 'Y'){
             jogador[linha][coluna] = 0;
@@ -257,9 +257,8 @@ void marcarBomba(){
     }
         
     else
-        printf("A posição escolhida já foi aberta!\n");
+        printf("\nA posição escolhida já foi aberta!\n");
 
-    imprimeTelaJogador();
 }
 
 int main() {
@@ -296,7 +295,7 @@ int main() {
         if (linha < 0 || linha >= TAM ||
             coluna < 0 || coluna >= TAM) {
 
-            printf("Posicao invalida!\n");
+            printf("Posição invalida!\n");
             continue;
         }
 
